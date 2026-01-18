@@ -11,14 +11,21 @@
     </image>
     <generator>Hugo -- 0.154.5</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jan 2026 17:19:48 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jan 2026 23:51:00 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java Interview 1 - summary of common interview questions for Java basics </title>
-      <link>http://localhost:1313/posts/java-basic-interview-1/</link>
+      <title>Java Basic Interview Object Oriented</title>
+      <link>http://localhost:1313/posts/java-basic-interview-object-oriented/</link>
+      <pubDate>Sun, 18 Jan 2026 23:51:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/java-basic-interview-object-oriented/</guid>
+      <description>Summary of common interview questions for Java basics - Object-oriented foundation</description>
+    </item>
+    <item>
+      <title>Java Interview - Basic concepts and common sense</title>
+      <link>http://localhost:1313/posts/java-basic-interview-basic/</link>
       <pubDate>Sun, 18 Jan 2026 17:19:48 +0700</pubDate>
-      <guid>http://localhost:1313/posts/java-basic-interview-1/</guid>
-      <description>Summary of common interview questions for Java basics</description>
+      <guid>http://localhost:1313/posts/java-basic-interview-basic/</guid>
+      <description>Summary of common interview questions for Java basics - Basic concepts and common sense</description>
     </item>
     <item>
       <title>Code Syntax Guide</title>

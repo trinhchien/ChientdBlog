@@ -2,34 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/basic/</loc>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/interview/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/interview/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/java/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/java/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java-basic-interview-1/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <loc>http://localhost:1313/posts/java-basic-interview-object-oriented/</loc>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/object-oriented/</loc>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/object-oriented/</loc>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/summary/</loc>
-    <lastmod>2026-01-18T17:19:48+07:00</lastmod>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-01-18T23:51:00+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/java-basic-interview-basic/</loc>
     <lastmod>2026-01-18T17:19:48+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/code/</loc>
