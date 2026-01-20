@@ -144,10 +144,110 @@ Compare process-oriented programing (POP) & object-oriented programing (OOP):
 
 ### Upcasting và Downcasting
 
+- Upcasting là ép kiểu từ subclass lên superclass -> an toàn
+
+```java
+Animal a = new Dog();
+```
+
+- Downcasting là ép kiểu từ lớp cha xuống lớp con.
+  - Có thể gây lỗi ClassCastException
+  - Không an toàn
+  - Nên check instanceof trước khi downcasting
+
+```java
+if (a instanceof Dog) {
+    Dog d = (Dog) a;
+    d.fetch();
+}
+```
+
+```java
+if (obj instanceof Dog dog) {
+    dog.fetch(); //Pattern matching cho instanceof - Java 16+
+}
+```
+
 ### The difference between interfaces and abstract classes
 
 ### Shallow copy and Deep Copy
 
+- Shallow coppy -> chỉ copy giá trị các field. Nếu field là kiểu reference -> copy địa chỉ.
+  - Implement interface Cloneable -> override method clone() -> gọi super.clone()
+
+```java
+class Person implements Cloneable {
+    public Person clone() throws CloneNotSupportedException {
+        return (Person) super.clone();
+    }
+}
+```
+
+- Deep copy -> tạo object mới. Mỗi object con đều là instance mới
+  - Nên dùng copy constructor thay vì override clone() cho rõ ràng, dễ kiểm soát
+
+```java
+class Person {
+    Person(Person other) {
+        this.name = other.name;
+        this.address = new Address(other.address.city);
+    }
+}
+```
+
 ## Object
 
 ### Common method of object class
+
+|Method  |	Override?|  	Mục đích chính|
+|---|---|---|
+|equals  |	✅	|  So sánh logic|
+|hashCode  |	✅	|  Hash-based collection|
+|toString  |	✅	|  Debug / log|
+|clone  |	⚠️	|  Copy object|
+|getClass  |	❌	|  Runtime class|
+|finalize  |	❌	|  GC hook (obsolete)|
+|wait  |	❌	|  Thread sync|
+|notify  |	❌	|  Thread sync|
+|notifyAll  |	❌	|  Thread sync|
+
+- Wrapper class mặc định override `equals` method -> so sánh giá trị thay vì địa chỉ.
+- hashCode() -> index. 2 đối tượng `a.equals(b) == true` thì `a.hashCode()` phải bằng nhau. Điều ngược lại chưa chắc đúng.
+- Override `equals()` method thì phải override cả `hashCode()` method
+
+## String
+
+- Tổng quan nhanh
+|Tiêu chí	|String	|StringBuffer|	StringBuilder|
+|---|---|--|---|
+|Mutable (thay đổi được)?|	❌ Không|	✅ Có|	✅ Có|
+|Thread-safe	|✅ Có|	✅ Có|	❌ Không|
+|Hiệu năng|	❌ Thấp	|⏳ Trung bình|	🚀 Cao|
+|Ra đời từ	|Java 1.0	|Java 1.0	|Java 5|
+|Dùng khi|	Chuỗi cố định, String đơn giản không loop|	Đa luồng|	Đơn luồng|
+
+> **Note** Mặc định khi dùng `+` string java sẽ dùng StringBuilder. Nhưng trong vòng for loop thì new object được tạo mới mỗi vòng for.
+
+- ví dụ khi dùng `+` với string
+
+```java
+String str1 = "he";
+String str2 = "llo";
+String str3 = "world";
+String str4 = str1 + str2 + str3;
+```
+
+![StringBuilder](string-builder.png)
+
+- trường hợp dùng `+` với string trong vòng for 
+
+```java
+String[] arr = {"he", "llo", "world"};
+String s = "";
+for (int i = 0; i < arr.length; i++) {
+    s += arr[i];
+}
+System.out.println(s);
+```
+
+![String-in-loop](loop-string-builder.png)
