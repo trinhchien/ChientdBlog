@@ -14,7 +14,7 @@ TocOpen: true
 
 ### What is the difference between member variables and local variables?
 
-- Member variable: 
+- Member variable:
   - Thuộc về `class`
   - Khai báo trong `class` nhưng ngoài `method`
   - Nếu có `static` thì lưu trong Method Area (metaspace) và dùng chung cho các object
@@ -199,17 +199,17 @@ class Person {
 
 ### Common method of object class
 
-|Method  |	Override?|  	Mục đích chính|
-|---|---|---|
-|equals  |	✅	|  So sánh logic|
-|hashCode  |	✅	|  Hash-based collection|
-|toString  |	✅	|  Debug / log|
-|clone  |	⚠️	|  Copy object|
-|getClass  |	❌	|  Runtime class|
-|finalize  |	❌	|  GC hook (obsolete)|
-|wait  |	❌	|  Thread sync|
-|notify  |	❌	|  Thread sync|
-|notifyAll  |	❌	|  Thread sync|
+|Method   |Override?|  Mục đích chính        |
+|---------|---------|------------------------|
+|equals   |  ✅     |  So sánh logic         |
+|hashCode |✅       |  Hash-based collection |
+|toString | ✅      |  Debug / log           |
+|clone    | ⚠️      |  Copy object           |
+|getClass | ❌      |  Runtime clas          |
+|finalize | ❌      |  GC hook (obsolete)    |
+|wait     | ❌      |  Thread sync           |
+|notify   | ❌      |  Thread sync           |
+|notifyAll| ❌      |  Thread sync           |
 
 - Wrapper class mặc định override `equals` method -> so sánh giá trị thay vì địa chỉ.
 - hashCode() -> index. 2 đối tượng `a.equals(b) == true` thì `a.hashCode()` phải bằng nhau. Điều ngược lại chưa chắc đúng.
@@ -218,13 +218,13 @@ class Person {
 ## String
 
 - Tổng quan nhanh
-|Tiêu chí	|String	|StringBuffer|	StringBuilder|
+|Tiêu chí |String |StringBuffer| StringBuilder|
 |---|---|--|---|
-|Mutable (thay đổi được)?|	❌ Không|	✅ Có|	✅ Có|
-|Thread-safe	|✅ Có|	✅ Có|	❌ Không|
-|Hiệu năng|	❌ Thấp	|⏳ Trung bình|	🚀 Cao|
-|Ra đời từ	|Java 1.0	|Java 1.0	|Java 5|
-|Dùng khi|	Chuỗi cố định, String đơn giản không loop|	Đa luồng|	Đơn luồng|
+|Mutable (thay đổi được)?| ❌ Không| ✅ Có| ✅ Có|
+|Thread-safe |✅ Có| ✅ Có| ❌ Không|
+|Hiệu năng| ❌ Thấp |⏳ Trung bình| 🚀 Cao|
+|Ra đời từ |Java 1.0 |Java 1.0 |Java 5|
+|Dùng khi| Chuỗi cố định, String đơn giản không loop| Đa luồng| Đơn luồng|
 
 > **Note** Mặc định khi dùng `+` string java sẽ dùng StringBuilder. Nhưng trong vòng for loop thì new object được tạo mới mỗi vòng for.
 
@@ -239,7 +239,7 @@ String str4 = str1 + str2 + str3;
 
 ![StringBuilder](string-builder.png)
 
-- trường hợp dùng `+` với string trong vòng for 
+- trường hợp dùng `+` với string trong vòng for
 
 ```java
 String[] arr = {"he", "llo", "world"};
@@ -251,3 +251,42 @@ System.out.println(s);
 ```
 
 ![String-in-loop](loop-string-builder.png)
+
+### String.intern
+
+- Là native method.
+- Dùng để tương tác với String Pool của JVM
+- Nếu chuỗi đã tồn tại trong pool thì trả về reference đã có
+- Nếu chuối chưa tồn tại thì thêm vào pool và trả về reference đó  
+=>Chuẩn hoá reference, giảm trùng lặp bộ nhớ, tăng tốc độ so sánh chuỗi (==)  
+
+```java
+String a = new String("hello");
+String b = a.intern();
+String c = "hello";
+
+System.out.println(a == c); // false
+System.out.println(b == c); // true
+```
+
+|**Note**: Java hiện đại có Đeuplication GC (GC features). Đã dedup tự động, không cần intern(), không giữ reference toàn cục nên an toàn hơn intern()
+
+### What happens when variables and constants of type String do "+" operations?
+
+```java
+String str1 = "str";
+String str2 = "ing";
+String str3 = "str" + "ing";
+String str4 = str1 + str2;
+String str5 = "string";
+System.out.println(str3 == str4);//false
+System.out.println(str3 == str5);//true
+System.out.println(str4 == str5);//false
+```
+
+- Nhờ constant folding nên biểu thức chỉ gồm hằng số được tính toán tại thời điểm runtime. Do đó mới có sự giống và khác nhau trong kết quả so sánh trên.
+
+## Unusual
+
+### Overview of the Java Exception Class Hierarchy Diagram
+
